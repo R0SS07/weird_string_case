@@ -11,20 +11,18 @@ func main() {
 
 }
 func toWeirdCase(str string) string {
-	arr := strings.Split(str, "")
-	res := []string{}
-	index := 0
-	for k, value := range arr {
-		if index%2.0 == 0 {
-			res = append(res, strings.ToUpper(value))
+	i, arr := 0, []string{}
+	for k, val := range strings.Split(str, "") {
+		if i%2 == 0 {
+			arr = append(arr, strings.ToUpper(val))
 		} else {
-			res = append(res, strings.ToLower(value))
+			arr = append(arr, strings.ToLower(val))
 		}
-		if arr[k] == " " {
-			index = 0
+		if str[k] == 32 {
+			i = 0
 		} else {
-			index++
+			i++
 		}
 	}
-	return strings.Join(res, "")
+	return strings.Join(arr, "")
 }
